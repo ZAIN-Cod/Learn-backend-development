@@ -45,10 +45,13 @@ if(!avatarLocalPath){
     throw new ApiError(400,"avatar file is required")
 }
 const avatar=await uploadCloudinary(avatarLocalPath)
-const coverImage=await uploadCloudinary(coverImageLocalPath)
+const coverImage = coverImageLocalPath
+    ? await uploadCloudinary(coverImageLocalPath)
+    : null
+
 
 if(!avatar){
-    throw new ApiError(4300,"avatar file is required")
+    throw new ApiError(400,"avatar file is required")
 }
 const user=await User.create({
     fullName,
