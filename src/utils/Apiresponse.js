@@ -6,3 +6,5 @@ const ApiResponse = class {
         this.success = statusCode < 400;
     }
 };
+
+export {ApiResponse}
