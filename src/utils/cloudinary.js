@@ -20,6 +20,8 @@ const response=await cloudinary.uploader.upload(localFilePath,{
 }) 
 //file has been uploaded successfuly
 console.log("file uploaded to cloudinary successfully", response.url);
+
+fs.unlinkSync(localFilePath)
 return response;
     }
     catch (error) {
