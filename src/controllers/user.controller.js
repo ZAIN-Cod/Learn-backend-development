@@ -72,4 +72,18 @@ return res.status(201).json(
 )
 })
 
-export {registerUser,}
+const loginUser=asyncHandler(async(req,res)=>{
+    //req body->data
+    //username or email
+    //find the user
+    //password check
+    //access and referesh token
+    //send cookies
+
+    
+
+})
+
+export {registerUser,
+loginUser
+}
