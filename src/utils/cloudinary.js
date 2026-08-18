@@ -32,4 +32,22 @@ return response;
     }
 }
 
-export {uploadCloudinary}
+const deleteFromCloudinary = async (imageUrl) => {
+    try {
+        if (!imageUrl) return null
+
+        // URL se sirf "public_id" nikalna hai (Cloudinary ko yehi chahiye delete ke liye)
+        const publicId = imageUrl.split("/").pop().split(".")[0]
+
+        const response = await cloudinary.uploader.destroy(publicId)
+        console.log("Deleted from Cloudinary:", response)
+        return response
+
+    } catch (error) {
+        console.log("Error deleting from Cloudinary:", error)
+        return null
+    }
+}
+
+export { uploadOnCloudinary, deleteFromCloudinary }
+
